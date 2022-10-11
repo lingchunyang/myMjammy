@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="h2 text-center rounded py-3 hero-title fw-bold mb-0">{{menueTitle}}</div>
+    <div class="products row g-0 row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-around" id="product-row">
+        <span *ngFor="let food of foodArr; let i = index">
+            <div class="card product col my-4" style="width: 300px;">
+                <img class="card-img-top mt-2 px-3" src={{food.getImage()}} alt="product1">
+                <div class="card-body px-3 py-0">
+                    <h5 class="card-title">{{food.getName()}}</h5>
+                    <p class="card-text">{{food.getDescription()}}</p>
+                    <p class="card-text h3 text-end">{{food.getPrice()}}</p>
+                    <p class="card-text3 d-flex justify-content-end"><button class="btn w-75 product-button"
+                            type="button" (click)="addToCart(food)"><i class="fs-4 bi bi-cart-plus"></i> Add to
+                            cart</button></p>
+
+                </div>
+            </div>
+        </span>
+
+        <!-- Placeholder Product End -->
+    </div>
+</div>

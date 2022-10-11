@@ -1,0 +1,40 @@
+<div class="cart mb-3">
+    <h2 class="text-center bg-dark text-white p-3 fw-bold rounded mb-0">Shopping Basket</h2>
+    <div class="cart-items">
+        <span *ngFor="let item of items">
+            <div class="cart-row row gx-0">
+                <div class="cart-item col-6 ps-md-5 my-2 d-flex align-items-center justify-content-start">
+                    <img class="cart-item-image" src='{{item.getFood().getImage()}}' width="100" height="100"
+                        alt="js-logo">
+                    <div class="cart-item-title h5 ms-2">{{item.getFood().getName()}}</div>
+                </div>
+                <div class="cart-qtty-action col-2 d-flex justify-content-center align-items-center">
+                    <div class="d-flex">
+                        <button (click)="increase(item)"><i class="plus fs-5 bi bi-plus-circle-fill"></i></button>
+                    </div>
+                    <div class="text-center m-0 cart-quantity h4 w-25">{{item.getQtty()}}</div>
+                    <div class="d-flex">
+                        <button (click)="decrease(item)"><i class="minus fs-5 bi bi-dash-circle-fill"></i></button>
+                    </div>
+                </div>
+                <div class="col-1 d-flex justify-content-start align-items-center">
+                    <i class="del fs-4 bi bi-trash3-fill text-danger"></i>
+                </div>
+                <div class="cart-price col-3 h5 my-auto text-end p-2 pe-sm-5">
+                    €&nbsp;{{item.getFood().getPrice()}}/€&nbsp;{{item.getPrice()}}
+                </div>
+            </div>
+        </span>
+    </div>
+
+
+    <div id="total" class="cart-total me-0 pb-2 text-center text-sm-end fw-bold">
+        <p class="cart-total-title m-0">Total <span id="price" class="cart-total-price h4 p-0 pe-sm-5 m-0 fw-bold">€
+                0.00</span></p>
+
+    </div>
+    <div class="d-flex justify-content-center">
+        <button id="btn-purchase" class="btn btn-purchase text-white" type="button">Check out <br><i
+                class="bi bi-cart-check-fill"></i></button>
+    </div>
+</div>
